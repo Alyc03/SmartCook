@@ -31,6 +31,6 @@ u2 ---> (se vor afisa doar retete sanatoase.) :alege din sistemul de filtrare se
 u2 ---> (se vor afisa doar retete rapide.) :alege din sistemul de filtrare sectiunea “Rapide”.
 u2 ---> (se vor afisa retete care sa contina cat mai multe produse de la “Alimente aproape de expirare”) :alege din sistemul de filtrare sectiunea “La limita”.
 
-u3 ---> (g)
+u3 ---> (gg)
 
 @enduml

@@ -1,0 +1,36 @@
+@startuml
+
+"Utilizator    (R/L)" as u1
+"Utilizator      (AA)" as u2
+"Utilizator      (R)" as u3
+u1 ---> (este afisata o pagina cu formularul de login) :introduce URL-ul aplicatie in browser
+u1 ---> (se va afisa un formular cu 3 campuri: “Email”, “Password”, “Confirm Password”) :da click pe butonul Register
+u1 ---> (butonul de “Sign In”  devine enable.) :introduce Emailul personal, Numele, Parola si Confirmarea parolei
+u1 ---> (va fi afisata o casuta cu un mesaj de eroare in care scrie Acest email a fost deja folosit.) :introduce un email deja folosit in aplicatie
+u1 ---> (casuta cu mesajul de eroare dispare si este afisata din nou pagina cu formularul de Register ) :apasa pe butonul Ok din casuta cu eroare
+u1 ---> (se creeaza un cont in aplicatie iar utilizatorului ii va fi afisata din nou pagina cu Forumularul de Login, iar deasupra paginii se afiseaza o casuta cu un mesaj de reusita Contul a fost creeat cu succes!):apasa pe butonul Sign In
+u1 ---> (datele sunt verificate daca au fost inregistrate in baza de date) #blue :introduce datele de conectare si apasa butonul Log In
+u1 ---> (Aplicatia salveaza datele de conectare .) : Utilizatorul bifeaza casuta de la “Remember me”.
+u1 ---> (Aplicatia nu salveaza datele de conectare.) : Utilizatorul nu bifeaza casuta de la “Remember me”.
+:datele sunt verificate daca au fost inregistrate in baza de date: --> :Datele sunt valide: #green
+:datele sunt verificate daca au fost inregistrate in baza de date: --> :Datele nu sunt valide: #red
+:Datele sunt valide: --> (se afiseaza pagina principala a aplicatiei.)
+:Datele nu sunt valide: --> (va fi afisata o casuta cu un mesaj de eroare care dispare dupa 5 secunde.)
+u1 ---> (aplicatia va trimite pe email un link pentru resetarea parolei.) :da click pe butonul “Forgot Password”.
+
+u2 ---> (se afiseaza o fereastra cu un formular care are o bara de cautare) :apasa butonul "Adauga Alimente".
+u2 ---> (aplicatia le memoreaza si creeaza o lista cu ele.) :utilizatorul introduce numele alimentelor pe care vrea sa le aibe in aplicatie
+u2 ---> (se afiseaza inca 2 casute unde utilizatorul trebuie sa introduca data de expirare si locatia in care a depozitat alimentul (Frigider, Camara, Raft) :adauga numele alimentului
+u2 ---> (se deschide camera) :apasa butonul de “Scan”.
+u2 ---> (campurile “Nume” si “Data de expirare” vor fi completate automat.) :scaneaza codul QR
+u2 ---> (apare un pop up cu alimentele care urmează să expire.) :apasa pe butonul  "Alimente aproape de expirare".
+u2 ---> (aplicatia cauta in baza de date cu retete si compara cu informatia din cealalta baza de date cu produse pentru a gasii ce retete poate prepara utilizatorul ) :apasa butonul "Gateste Ceva".
+:aplicatia cauta in baza de date cu retete si compara cu informatia din cealalta baza de date cu produse pentru a gasii ce retete poate prepara utilizatorul : --> (se afiseza o pagina pe care sunt mai multe optiunii de retete)
+u2 ---> (apare o lista cu 3 optiuni) : apasa butonul de filtrare
+u2 ---> (se vor afisa doar retete sanatoase.) :alege din sistemul de filtrare sectiunea “Sanatoase” .
+u2 ---> (se vor afisa doar retete rapide.) :alege din sistemul de filtrare sectiunea “Rapide”.
+u2 ---> (se vor afisa retete care sa contina cat mai multe produse de la “Alimente aproape de expirare”) :alege din sistemul de filtrare sectiunea “La limita”.
+
+u3 ---> (g)
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml
+class URL {}
+class browser {}
+class pagina {}
+class formularul_de_login{}
+pagina ..> formularul_de_login :contine
+class camp_username_parola {}
+class username {}
+class parola {}
+class buton_register_forgot_password_login {}
+class casuta_rember_me {}
+class textul_remember_me {}
+casuta_rember_me ..> textul_remember_me :contine
+formularul_de_login ..> camp_username_parola :contine
+formularul_de_login ..> buton_register_forgot_password_login :contine
+formularul_de_login ..> casuta_rember_me :contine
+
+@enduml

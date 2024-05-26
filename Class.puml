@@ -13,6 +13,6 @@ class textul_remember_me {}
 casuta_rember_me ..> textul_remember_me :contine
 formularul_de_login ..> camp_username_parola :contine
 formularul_de_login ..> buton_register_forgot_password_login :contine
-formularul_de_login ..> casuta_rember_me :continee
+formularul_de_login ..> casuta_rember_me :contine
 
 @enduml

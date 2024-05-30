@@ -16,6 +16,6 @@ formularul_de_login .. camp_parola :contine
 formularul_de_login .. buton_register :contine
 formularul_de_login .. buton_forgot_password :contine
 formularul_de_login .. buton_login :contine
-formularul_de_login .. casuta_rember_me :continee
+formularul_de_login .. casuta_rember_me :contine
 
 @enduml

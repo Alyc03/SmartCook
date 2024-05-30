@@ -1,18 +1,21 @@
 @startuml
-class URL {}
-class browser {}
-class pagina {}
+class utilizator {}
+class pagina_de_login {}
 class formularul_de_login{}
-pagina ..> formularul_de_login :contine
-class camp_username_parola {}
-class username {}
-class parola {}
-class buton_register_forgot_password_login {}
+pagina_de_login .. formularul_de_login :contine
+class camp_username {}
+class camp_parola {}
+class buton_register {}
+class buton_forgot_password {}
+class buton_login {}
 class casuta_rember_me {}
 class textul_remember_me {}
-casuta_rember_me ..> textul_remember_me :contine
-formularul_de_login ..> camp_username_parola :contine
-formularul_de_login ..> buton_register_forgot_password_login :contine
-formularul_de_login ..> casuta_rember_me :continee
+casuta_rember_me .. textul_remember_me :contine
+formularul_de_login .. camp_username :contine
+formularul_de_login .. camp_parola :contine
+formularul_de_login .. buton_register :contine
+formularul_de_login .. buton_forgot_password :contine
+formularul_de_login .. buton_login :contine
+formularul_de_login .. casuta_rember_me :contine
 
 @enduml

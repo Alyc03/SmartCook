@@ -2,20 +2,39 @@
 class utilizator {}
 class pagina_de_login {}
 class formularul_de_login{}
-pagina_de_login .. formularul_de_login :contine
+
 class camp_username {}
-class camp_parola {}
+class camp_password {
+parola
+}
 class buton_register {}
 class buton_forgot_password {}
 class buton_login {}
-class casuta_rember_me {}
+class casuta_checkbox {}
 class textul_remember_me {}
-casuta_rember_me .. textul_remember_me :contine
+
+class formular_register {}
+class camp_email {
+email_personal
+}
+class camp_confirm_password {
+confirmarea_parolei
+}
+class buton_sign_in {}
+
+
+
+formular_register .. buton_sign_in :contine
+formular_register .. camp_email :contine
+formular_register .. camp_password :contine
+formular_register .. camp_confirm_password :contine
+pagina_de_login .. formularul_de_login :contine
+casuta_checkbox .. textul_remember_me :contine
 formularul_de_login .. camp_username :contine
-formularul_de_login .. camp_parola :contine
+formularul_de_login .. camp_password :contine
 formularul_de_login .. buton_register :contine
 formularul_de_login .. buton_forgot_password :contine
 formularul_de_login .. buton_login :contine
-formularul_de_login .. casuta_rember_me :continee
+formularul_de_login .. casuta_checkbox :contine
 
 @enduml

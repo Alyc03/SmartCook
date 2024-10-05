@@ -1,40 +1,181 @@
 @startuml
-class utilizator {}
+pagina_de_login "1" ---* "1" formularul_de_login
+formular_register "1" ---* fereastra_eroare
+
+
+formularul_de_login "1" ---* "1" casuta_checkbox
+pagina_de_register "1" ---* "1" formular_register
+baza_de_date "1" ---* email_deja_inregistat
+
+pagina_principala "1" ---* "1" buton_retete
+pagina_principala "1" ---* "1" buton_alimente_aproape_de_expirare
+baza_de_date "1" ---* alimente
+baza_de_date "1" ---* ingrediente
+
+
+pagina_adauga_alimente "1" ---* "1" formular_de_adaugare
+baza_de_date "1" ---* date_completate
+formular_de_adaugare "1" ---* "1" buton_scan
+alimente ---* "1" cod_QR
+pagina_adauga_alimente "1" ---* "1" buton_home
+
+
+pagina_principala "1" ---* "1" buton_alimente_aproape_de_expirare
+pagina_principala "1" ---> "1" pop_up
+
+pagina_gateste_ceva "1" ---* "1" buton_home
+pagina_gateste_ceva "1" ---* "1" fereastra_reteta_selectata
+
+
+
+baza_de_date "1" ---> aliment
+pagina_retete "1" ---> buton_home
+pagina_retete ---> lista_ingrediente_necesare
+
+
+
+
+
+
 class pagina_de_login {}
-class formularul_de_login{}
-
-class camp_username {}
-class camp_password {
-parola
+class formularul_de_login{
+camp_username
+camp_password
+buton_register
+buton_forgot_password
+buton_login
+casuta_checkbox
+salveaza_datele_introduse()
 }
-class buton_register {}
-class buton_forgot_password {}
-class buton_login {}
-class casuta_checkbox {}
-class textul_remember_me {}
 
+class casuta_checkbox {
+textul_remember_me
+verifica_daca_casuta_este_bifata()
+}
+class pagina_de_register {}
+class formular_register {
+camp_email
+camp_password
+camp_confirm_password
+buton_sign_in
+buton_Aleready_have_an_account
+salveaza_datele_introduse()
+}
+
+
+
+class email_deja_inregistat {}
+class baza_de_date {}
 class formular_register {}
-class camp_email {
-email_personal
+class fereastra_eroare {
+mesaj_de_eroare
+buton_ok
+afiseaza_mesaj_eroare()
+inchide_casuta()
 }
-class camp_confirm_password {
-confirmarea_parolei
+
+class pagina_principala {
+buton_adauga_alimente
+buton_gateste_ceva
+adauga_alimente()
+gateste_ceva()
+
 }
-class buton_sign_in {}
+
+class alimente {}
+class ingrediente {}
+class buton_retete {
+retete
+afiseaza_retete()
+}
+class baza_de_date {}
+class buton_alimente_aproape_de_expirare {
+alimente
+data_de_expirare
+afiseaza_alimente()
+afiseaza_data_de_expirare()
+}
+
+
+class pagina_adauga_alimente {}
+class formular_de_adaugare {
+bara_de_cautare
+buton_adauga_aliment
+buton_lista_alimente
+cauta_aliment()
+adauga_aliment()
+afiseaza_lista_alimente()
+}
+class baza_de_date {
+lista_de_alimente
+data_de_expirare
+}
+class date_completate {}
+
+class buton_scan {
+camera
+deschide_camera()
+}
+class cod_QR {
+camp_nume
+camp_data_de_expirare
+}
+class alimente {}
+class alimente {}
+class buton_home {}
 
 
 
-formular_register .. buton_sign_in :contine
-formular_register .. camp_email :contine
-formular_register .. camp_password :contine
-formular_register .. camp_confirm_password :contine
-pagina_de_login .. formularul_de_login :contine
-casuta_checkbox .. textul_remember_me :contine
-formularul_de_login .. camp_username :contine
-formularul_de_login .. camp_password :contine
-formularul_de_login .. buton_register :contine
-formularul_de_login .. buton_forgot_password :contine
-formularul_de_login .. buton_login :contine
-formularul_de_login .. casuta_checkbox :contine
+class pagina_principala {}
+class buton_alimente_aproape_de_expirare {}
+class pop_up {
+alimente_maxim_3_zile_valabilitate
+afiseaza_alimente_maxim_3_zile_valabilitate ()
+}
+
+
+class pagina_gateste_ceva {
+butoane_optiune_reteta
+selecteaza_reteta()
+}
+class fereastra_reteta_selectata {
+reteta
+ingrediente_necesare
+}
+class buton_home {
+acceseaza_pagina_home()
+}
+
+
+class buton_retete {}
+class pagina_retete {
+buton_retete_random
+afiseaza_retete_random()
+}
+class aliment {}
+class baza_de_date {}
+class lista_ingrediente_necesare {
+ingrediente_inregistate_in_baza_de_date
+ingrediente_care_nu_sunt_inregistate_in_baza_de_date
+afiseaza_ingredientele()
+}
+class buton_home {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @enduml
